@@ -2,16 +2,16 @@ from PIL import Image, ImageDraw, ImageFont
 import textwrap
 
 # Load the image from the filesystem
-image_path = '../Data/1162174922093764610-dalle3-0.jpg'
+image_path = '../Data/1162671015483154472-dalle3-0.jpeg'
 original_image = Image.open(image_path)
 
 # Texts to be added to the images
 texts = [
-    "A couple celebrating their engagement in a traditional Korean hanbok attire.",
-    "Bride and groom at their winter-themed wedding ceremony indoors.",
-    "A married couple poses for their 10-year anniversary photo shoot, recreating their original wedding look.",
-    "Models showcasing modern bridal wear and groom's fashion at an indoor photography studio setup.",
-    "Actors on a film set, dressed in wedding attire for a movie scene set in the Victorian era."
+    "An unlikely duo: A mysterious figure in a Guy Fawkes mask and a dapper gentleman with an exquisite beard share a light-hearted moment over the simple pleasure of ice cream.",
+    "A paradoxical pair: One hidden behind an iconic symbol of protest, the other exuding vintage sophistication, both find common ground in the joy of frozen desserts.",
+    "Mask meets mustache: While one face remains an enigma, the other smiles broadly, their contrasting personas unified by the universal language of sweet treats.",
+    "From vendetta to vanilla: A symbolically cloaked figure trades whispers of revolution for whispers of flavor, accompanied by a classically groomed compatriot.",
+    "A moment of delight in disguise: Beneath the mask lies a taste for mint chocolate chip, while the top-hatted connoisseur's choice hints at a penchant for the classics."
 ]
 
 # Define the function to add blank space and text to an image
@@ -25,7 +25,7 @@ def add_text_to_image(image, text):
 
     # Set the font size and font
     font_size = 20
-    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
+    font = ImageFont.truetype("../Data/DejaVu_Sans/DejaVuSans-Bold.ttf", font_size)
 
     # Initialize the drawing context
     draw = ImageDraw.Draw(new_image)
@@ -47,7 +47,7 @@ def add_text_to_image(image, text):
 image_paths = []
 for i, text in enumerate(texts):
     new_image = add_text_to_image(original_image, text)
-    new_image_path = f'/mnt/data/wedding_image_with_text_{i+1}.jpg'
+    new_image_path = f'../Results/Typogrphic Attack/two_guy_image_with_text_{i+1}.jpg'
     new_image.save(new_image_path)
     image_paths.append(new_image_path)
 
